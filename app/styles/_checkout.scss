@@ -1,0 +1,258 @@
+$checkoutHeaderSize: 20px;
+$checkoutHeaderTextColor: black;
+
+$checkoutBorderRadius: 4px;
+$checkoutBorderSize: 2px;
+$checkoutBorderColor: #dcdcdc;
+$checkoutBorderColorFocus: #3f51b5;
+$checkoutBorderDashedColor: #e0e0e0;
+
+$checkoutInputTextColor: #444;
+$checkoutInputLabelTextColor: #616161;
+$checkoutInputErrorColor: #f44336;
+
+$checkoutSummaryColor: black;
+
+
+.mdl-demo {
+  .mdl-layout__tab-panel {
+    &#checkout {
+      background: #f2f2f2;
+    }
+  }
+}
+
+.checkout {
+  &-header {
+    span {
+      display: block;
+      float: left;
+      color: #fff;
+      background-color: rgb(0, 0, 0);
+      width: $checkoutHeaderSize;
+      height: $checkoutHeaderSize;
+      border-radius: $checkoutHeaderSize;
+      line-height: $checkoutHeaderSize;
+      text-align: center;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    strong {
+      text-transform: uppercase;
+      color: $checkoutHeaderTextColor;
+      display: block;
+      float: left;
+      font-size: 13px;
+      line-height: $checkoutHeaderSize;
+      margin-left: 10px;
+    }
+
+    i {
+      font-size: 16px;
+      vertical-align: middle;
+      line-height: 16px;
+      margin-top: -3px;
+      margin-left: 5px;
+      color: #484848;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  &-section {
+    padding-left: 13px;
+  }
+
+  &-input {
+    position: relative;
+
+    label {
+      display: block;
+      position: absolute;
+      top: 3px;
+      left: 10px;
+      font-size: 13px;
+      font-weight: bold;
+      color: $checkoutInputLabelTextColor;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      &,
+      &:focus,
+      &:active {
+        outline: none;
+      }
+    }
+
+    select,
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      display: block;
+      margin: 0;
+      width: 100%;
+      height: 50px;
+      background: white;
+      border: none;
+      border-bottom: $checkoutBorderSize solid $checkoutBorderColor;
+      border-radius: $checkoutBorderRadius;
+      padding: 16px 10px 0 10px;
+      box-sizing: border-box;
+      font-size: 18px;
+      color: $checkoutInputTextColor;
+      line-height: 18px;
+      transition: all 0.4s ease;
+
+      &:focus {
+        border-color: $checkoutBorderColorFocus;
+      }
+    }
+
+    select {
+      text-indent: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      text-overflow: '';
+    }
+
+    &.drop {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-bottom: 2px solid #000;
+        border-right: 2px solid #000;
+        transform: rotate(45deg);
+        right: 20px;
+        top: 20px;
+      }
+    }
+
+    &.has-error {
+      label {
+        color: $checkoutInputErrorColor;
+      }
+
+      select,
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        &,
+        &:focus {
+          border-color: $checkoutInputErrorColor;
+        }
+      }
+    }
+
+    button {
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      background: #6bd400;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 16px;
+      border: none;
+      padding: 20px;
+      border-bottom: 2px solid #5db500;
+      border-radius: 4px;
+
+      i {
+        font-size: 16px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  #card-logo {
+    position: absolute;
+    right: 10px;
+    top: 11px;
+    width: 42px;
+    height: 26px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #checkout-form-success {
+    display: none;
+    background: #0ce40c;
+    border: 1px solid #0cd40c;
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+    padding: 17px;
+
+    i {
+      font-size: 22px;
+      line-height: 21px;
+      vertical-align: middle;
+    }
+  }
+
+  &-summary {
+    padding: 5px;
+    background: white;
+    border-bottom: $checkoutBorderSize solid $checkoutBorderColor;
+    border-radius: $checkoutBorderRadius;
+    color: $checkoutSummaryColor;
+
+    &-box {
+      border: 1px dashed $checkoutBorderDashedColor;
+      border-radius: $checkoutBorderRadius;
+      padding: 15px;
+    }
+
+    hr {
+      display: block;
+      height: 0;
+      width: 100%;
+      border: none;
+      border-bottom: 1px dashed $checkoutBorderDashedColor;
+    }
+
+    &-header {
+      color: $checkoutSummaryColor;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 18px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+
+      &-title {
+        &.bold {
+          font-weight: bold;
+        }
+      }
+
+      &-price {
+        &.big {
+          font-size: 32px;
+          font-weight: bold;
+          line-height: 38px;
+        }
+      }
+    }
+  }
+}
